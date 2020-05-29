@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-   get 'users/new'
-   post 'users/create'
-   get 'users/create'
+  get '/', to: 'users#new', as: 'user'
+  post '/', to: 'users#create'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/:user', to: 'users#show', as: 'homepage'
 
   resources :sessions
   # resources :users
